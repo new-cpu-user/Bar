@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Car Boot Bar</title>
+<meta name="theme-color" content="#0C1A15">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Bar">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0C1A15; --ink2:#132622; --rule:#20443A; --edge:#2B5A4B;
+  --chalk:#EFEAE0;   /* primary   14.9:1 */
+  --mist:#C3D0C8;    /* secondary 11.2:1 */
+  --sage:#A8BCB1;    /* labels     8.9:1 */
+  --amber:#E8B152;   /* accent     9.2:1 */
+  --grape:#EC8F94;   /* prep       7.6:1 */
+  --display:'Bodoni Moda',Georgia,'Times New Roman',serif;
+  --body:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --pad:18px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{
+  background:#0C1A15;            /* literal, so the page can never fall back to white */
+  color-scheme:dark;
+  -webkit-text-size-adjust:100%;text-size-adjust:100%;
+}
+body{
+  margin:0;background:#0C1A15;color:#EFEAE0;
+  font-family:var(--body);font-size:15px;line-height:1.45;
+  padding-bottom:calc(104px + env(safe-area-inset-bottom));
+  -webkit-font-smoothing:antialiased;overscroll-behavior-y:none;
+}
+button,input{font-family:inherit;color:inherit}
+button{background:none;border:0;padding:0;cursor:pointer}
+.hidden{display:none !important}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:20;
+  background:#0C1A15;               /* solid: backdrop-filter renders as a white wash on some iOS builds */
+  border-bottom:1px solid var(--edge);
+  padding:calc(11px + env(safe-area-inset-top)) var(--pad) 0;
+}
+.brand{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.brand h1{margin:0;font-family:var(--body);font-weight:600;font-size:11.5px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--sage)}
+.readout{font-family:var(--mono);font-size:12px;color:var(--sage);font-variant-numeric:tabular-nums}
+.readout b{color:var(--amber);font-weight:500}
+nav{display:flex;gap:26px;margin-top:12px}
+nav button{font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;
+  color:var(--sage);padding:0 0 11px;position:relative}
+nav button[aria-selected="true"]{color:var(--chalk)}
+nav button[aria-selected="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-1px;
+  height:2px;background:var(--amber)}
+main{padding:0 var(--pad)}
+
+/* ---------- slot rule ---------- */
+.slot{margin:32px 0 2px;display:flex;align-items:center;gap:12px}
+.slot h2{margin:0;font-family:var(--display);font-weight:400;font-size:20px;
+  white-space:nowrap;color:var(--chalk)}
+.ticks{flex:1;height:9px;display:flex;align-items:flex-end;gap:5px;overflow:hidden}
+.ticks i{width:1px;height:4px;background:var(--rule);display:block;flex:none}
+.ticks i:nth-child(5n+1){height:9px;background:var(--edge)}
+.slot .cnt{font-family:var(--mono);font-size:12.5px;color:var(--sage);font-variant-numeric:tabular-nums}
+.slot .cnt.on{color:var(--amber)}
+
+/* ---------- drink row ---------- */
+.drink{position:relative;border-bottom:1px solid var(--rule)}
+.drink.on{border-bottom-color:var(--edge)}
+.drink.on::before{content:"";position:absolute;top:0;bottom:0;width:2px;
+  left:calc(var(--pad) * -1);background:var(--amber)}
+.row{display:flex;align-items:center;gap:10px}
+.rowmain{flex:1;min-width:0;text-align:left;padding:15px 0}
+.name{font-family:var(--display);font-size:19.5px;font-weight:400;line-height:1.15;color:var(--chalk)}
+.sub{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--sage);
+  margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.step{display:flex;align-items:center;gap:2px;flex:none}
+.step button{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+  color:var(--mist);border:1px solid var(--edge);font-family:var(--mono);font-size:17px;line-height:1;
+  transition:border-color .15s,color .15s}
+.step button:active{border-color:var(--amber);color:var(--amber)}
+.step input{width:42px;height:34px;text-align:center;padding:0;border:0;
+  background:transparent;appearance:none;-webkit-appearance:none;
+  font-family:var(--mono);font-size:16px;font-variant-numeric:tabular-nums;
+  color:var(--mist);-webkit-text-fill-color:currentColor}
+.step input::-webkit-outer-spin-button,.step input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.drink.on .step input{color:var(--amber);font-weight:500}
+.step input:focus{outline:0;color:var(--chalk)}
+
+/* ---------- expanded recipe ---------- */
+.body{display:none;padding:0 0 20px}
+.drink.open .body{display:block}
+.meta{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--sage);margin-bottom:12px}
+.spec{border-left:1px solid var(--edge);padding-left:14px}
+.spec .l{display:flex;align-items:baseline;gap:10px;padding:4px 0;
+  font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums}
+.spec .l .i{flex:1;font-family:var(--body);font-size:14px;color:var(--chalk);min-width:0}
+.spec .l .per{color:var(--sage);font-size:12px;min-width:54px;text-align:right}
+.spec .l .tot{color:var(--amber);min-width:64px;text-align:right}
+.spec .l.gn .i{color:var(--mist)}
+.spec .l.gn .tot{color:var(--sage)}
+.how{margin-top:14px;font-size:13.5px;line-height:1.55;color:var(--mist);
+  border-top:1px dashed var(--rule);padding-top:12px}
+.flag{margin-top:10px;font-size:12.5px;line-height:1.5;color:var(--grape)}
+
+/* ---------- ingredients ---------- */
+.cat{margin:32px 0 8px;font-size:11px;letter-spacing:.19em;text-transform:uppercase;
+  color:var(--sage);font-weight:600;display:flex;align-items:center;gap:10px}
+.cat::after{content:"";flex:1;height:1px;background:var(--rule)}
+.ing{padding:13px 0;border-bottom:1px solid var(--rule)}
+.ing .top{display:flex;align-items:baseline;gap:10px}
+.ing .nm{flex:1;font-size:15.5px;color:var(--chalk);min-width:0}
+.ing .amt{font-family:var(--mono);font-size:14px;color:var(--amber);
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.ing .buy{font-family:var(--mono);font-size:12px;color:var(--sage);margin-top:6px}
+.gauge{display:flex;gap:3px;height:5px;margin-top:9px}
+.gauge span{flex:1;background:var(--rule);border-radius:1px;position:relative;overflow:hidden}
+.gauge span::after{content:"";position:absolute;top:0;bottom:0;left:0;
+  width:var(--f,0%);background:var(--amber)}
+.tag{display:inline-block;margin-left:7px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.08em;text-transform:uppercase;color:#0C1A15;background:var(--sage);
+  padding:2px 6px;border-radius:2px;vertical-align:1px}
+
+/* ---------- prep card ---------- */
+.prep{margin-top:30px;border:1px solid var(--edge);border-radius:3px;padding:16px;background:var(--ink2)}
+.prep h3{margin:0 0 5px;font-family:var(--display);font-size:20px;font-weight:400;color:var(--grape)}
+.prep .lede{font-size:13px;line-height:1.5;color:var(--mist);margin-bottom:14px}
+.prep .l{display:flex;align-items:baseline;gap:10px;padding:7px 0;border-top:1px solid var(--rule);
+  font-family:var(--mono);font-size:13.5px;font-variant-numeric:tabular-nums}
+.prep .l .i{flex:1;font-family:var(--body);font-size:14.5px;color:var(--chalk)}
+.prep .l .r{color:var(--sage);font-size:11.5px}
+.prep .l .v{color:var(--grape);min-width:70px;text-align:right}
+.prep .tot{margin-top:13px;font-family:var(--mono);font-size:11.5px;color:var(--sage)}
+
+.empty{margin-top:80px;text-align:center}
+.empty p{font-family:var(--display);font-size:20px;margin:0 0 8px;color:var(--chalk)}
+.empty small{font-size:13.5px;color:var(--mist)}
+.tools{display:flex;gap:10px;margin:28px 0 8px}
+.tools button{flex:1;padding:14px;border:1px solid var(--edge);border-radius:3px;
+  font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;color:var(--mist)}
+.tools button:active{border-color:var(--amber);color:var(--amber)}
+
+/* ---------- dock ---------- */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:30;
+  background:#0C1A15;border-top:1px solid var(--edge);
+  padding:12px var(--pad) calc(12px + env(safe-area-inset-bottom));
+  display:flex;align-items:center;gap:14px}
+.dock .sum{flex:1;min-width:0}
+.dock .big{font-family:var(--display);font-size:27px;line-height:1;color:var(--chalk);
+  font-variant-numeric:tabular-nums}
+.dock .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--sage);margin-top:5px}
+.dock .go{flex:none;background:var(--amber);color:#0C1A15;padding:14px 20px;border-radius:3px;
+  font-size:12px;letter-spacing:.13em;text-transform:uppercase;font-weight:600}
+.dock .go:active{opacity:.82}
+
+.toast{position:fixed;left:50%;transform:translateX(-50%);
+  bottom:calc(108px + env(safe-area-inset-bottom));z-index:40;
+  background:var(--chalk);color:#0C1A15;font-family:var(--mono);font-size:12px;
+  padding:9px 15px;border-radius:3px;opacity:0;pointer-events:none;transition:opacity .22s}
+.toast.show{opacity:1}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+
+/* sunlight, tired eyes, or a stated preference: push everything to primary */
+@media (prefers-contrast:more){
+  :root{--sage:#DDE6E1;--mist:#EFEAE0;--amber:#F3C878;--grape:#F5B2B6;--edge:#4C7D6B}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <h1>Car Boot Bar</h1>
+    <div class="readout" id="readout"></div>
+  </div>
+  <nav>
+    <button id="tabDrinks" aria-selected="true">Drinks</button>
+    <button id="tabIng" aria-selected="false">Ingredients</button>
+  </nav>
+</header>
+
+<main>
+  <section id="viewDrinks"></section>
+  <section id="viewIng" class="hidden"></section>
+</main>
+
+<div class="dock">
+  <div class="sum">
+    <div class="big" id="dockBig">0</div>
+    <div class="lbl" id="dockLbl">drinks poured</div>
+  </div>
+  <button class="go" id="dockGo">Ingredients</button>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ==========================================================
+   INGREDIENTS
+   pack  = the container you buy it in, in cl
+   fruit = folds into a whole-fruit count instead
+   ========================================================== */
+const CATS=[['spirit','Spirits'],['amaro','Liqueurs & aperitifs'],['wine','Wine'],
+  ['mixer','Mixers'],['juice','Juice'],['fresh','Fresh produce'],['larder','Larder & extras']];
+
+const ING={
+  gin      :{n:'Gin',                   c:'spirit',pack:70},
+  vodka    :{n:'Vodka',                 c:'spirit',pack:70},
+  rum      :{n:'White rum',             c:'spirit',pack:70},
+  tequila  :{n:'Tequila blanco',        c:'spirit',pack:70},
+  mezcal   :{n:'Mezcal',                c:'spirit',pack:70,home:1},
+  aperol   :{n:'Aperol',                c:'amaro', pack:70},
+  campari  :{n:'Campari',               c:'amaro', pack:70},
+  cointreau:{n:'Cointreau',             c:'amaro', pack:70},
+  amaretto :{n:'Amaretto',              c:'amaro', pack:70},
+  kahlua   :{n:'Kahlúa',                c:'amaro', pack:70,home:1},
+  lillet   :{n:'Lillet Blanc',          c:'amaro', pack:75,home:1},
+  prosecco :{n:'Prosecco',              c:'wine',  pack:75},
+  tonic    :{n:'Tonic water',           c:'mixer', pack:100},
+  ginger   :{n:'Ginger beer',           c:'mixer', pack:100},
+  soda     :{n:'Sparkling water',       c:'mixer', pack:100},
+  cranberry:{n:'Cranberry juice',       c:'juice', pack:100},
+  pineapple:{n:'Pineapple juice',       c:'juice', pack:100},
+  grapeJ   :{n:'Pink grapefruit juice', c:'juice', pack:100,alt:12,altN:'grapefruits'},
+  water    :{n:'Water',                 c:'juice', skip:1},
+  limeJ    :{n:'Lime juice',            c:'juice', fruit:'lime'},
+  lemonJ   :{n:'Lemon juice',           c:'juice', fruit:'lemon'},
+  syrup    :{n:'Sugar syrup',           c:'larder',pack:70},
+  coconut  :{n:'Coconut cream',         c:'larder',pack:40,packN:'× 40 cl tin',packP:'× 40 cl tins'},
+  espresso :{n:'Espresso',              c:'larder',pack:3,packN:'shot',packP:'shots'},
+
+  orangeSl :{n:'Orange slice',    c:'fresh', fruit:'orange',   per:6, note:'slices'},
+  limeWdg  :{n:'Lime wedge',      c:'fresh', fruit:'lime',     per:8, note:'wedges'},
+  limeWhole:{n:'Lime',            c:'fresh', fruit:'lime',     per:1, note:'whole'},
+  lemonHalf:{n:'Lemon, halved',   c:'fresh', fruit:'lemon',    per:2, note:'halves'},
+  lemonTw  :{n:'Lemon twist',     c:'fresh', fruit:'lemon',    per:8, note:'twists'},
+  pineWdg  :{n:'Pineapple wedge', c:'fresh', fruit:'pineapple',per:10,note:'wedges'},
+  mint     :{n:'Mint',            c:'fresh', u:'sprig',up:'sprigs',pack:10,packN:'bunch',packP:'bunches'},
+  basil    :{n:'Basil',           c:'fresh', u:'leaf', up:'leaves',pack:30,packN:'bunch',packP:'bunches'},
+  eggWhite :{n:'Egg white',       c:'larder',pack:6,packN:'box of 6',packP:'boxes of 6'},
+  coffeeBn :{n:'Coffee beans',    c:'larder'},
+  angostura:{n:'Angostura',       c:'larder',u:'dash',up:'dashes'},
+  brownSug :{n:'Brown sugar',     c:'larder',u:'tbsp',up:'tbsp',gram:12},
+  seaSalt  :{n:'Sea salt',        c:'larder',u:'pinch',up:'pinches'},
+};
+const FRUIT={lime:{n:'Limes',cl:3},lemon:{n:'Lemons',cl:4},
+  orange:{n:'Oranges'},pineapple:{n:'Pineapple'}};
+
+/* Pink Grapefruit Lemonade — 1 : 1 : 6 : 6 */
+const PGL={parts:{lemonJ:1,syrup:1,grapeJ:6,water:6},total:14};
+const PGLROWS=[['Lemon juice',1],['Sugar syrup',1],['Pink grapefruit juice',6],['Water',6]];
+
+/* ==========================================================
+   DRINKS — per single serve. [id, amount] = cl.
+   [id, amount, 'u'] = counted.  [id, amount, 'g'] = garnish.
+   ========================================================== */
+const SLOTS=[['day','Daytime'],['eve','Early evening'],['late','Late evening'],['mock','Mocktails']];
+
+const DRINKS=[
+{id:'aperol',slot:'day',n:'Aperol Spritz',glass:'Wine glass',tech:'Build',
+ ing:[['prosecco',12],['aperol',8],['soda',4],['orangeSl',1,'g']],
+ how:'Fill a big wine glass with ice. Prosecco, then Aperol, top with soda. One gentle stir.'},
+
+{id:'fifty',slot:'day',n:'50/50 Spritz',glass:'Wine glass',tech:'Build',
+ ing:[['prosecco',12],['aperol',4],['campari',4],['soda',4],['orangeSl',1,'g']],
+ how:'As the Aperol Spritz — Aperol and Campari go in together over the ice.'},
+
+{id:'campari',slot:'day',n:'Campari Spritz',glass:'Wine glass',tech:'Build',
+ ing:[['prosecco',12],['campari',8],['soda',4],['orangeSl',1,'g']],
+ how:'As the Aperol Spritz, Campari in place of Aperol. Drier and a good deal more bitter.'},
+
+{id:'london',slot:'day',n:'London Mule',glass:'Mug or highball',tech:'Build',
+ ing:[['gin',6],['limeJ',2],['ginger',12],['limeWdg',1,'g']],
+ how:'Build over cubed ice: gin, lime, then top with cold ginger beer.'},
+
+{id:'moscow',slot:'day',n:'Moscow Mule',glass:'Mug or highball',tech:'Build',
+ ing:[['vodka',6],['limeJ',2],['ginger',12],['limeWdg',1,'g']],
+ how:'Build over cubed ice: vodka, lime, then top with cold ginger beer.'},
+
+{id:'paloma',slot:'eve',n:'Mezcal Paloma',glass:'Highball',tech:'Build',
+ ing:[['mezcal',5],['limeJ',4],['pgl',12],['seaSalt',1,'u']],
+ how:'Salt the rim. Build over ice: mezcal, lime, then top with the pink grapefruit lemonade.'},
+
+{id:'cosmo',slot:'eve',n:'Cosmopolitan',glass:'Coupe',tech:'Shake',
+ ing:[['vodka',4],['cointreau',4],['limeJ',4],['cranberry',2]],
+ how:'Shake hard with ice, double strain into a chilled coupe.'},
+
+{id:'marg',slot:'eve',n:'Margarita',glass:'Coupe or rocks',tech:'Shake',
+ ing:[['tequila',8],['cointreau',4],['limeJ',4],['seaSalt',1,'u'],['limeWdg',1,'g']],
+ how:'Salt half the rim so there is a way out. Shake with ice, strain over fresh ice.'},
+
+{id:'gt',slot:'eve',n:'Gin & Tonic',glass:'Balloon or highball',tech:'Build',
+ ing:[['gin',4],['tonic',12],['limeWdg',1,'g']],
+ how:'Pack the glass with ice, gin first, tonic poured down a bar spoon. Stir once, gently.'},
+
+{id:'smash',slot:'eve',n:'Gin Basil Smash',glass:'Rocks',tech:'Shake',
+ ing:[['gin',6],['lemonJ',2.25],['syrup',2.25],['basil',8,'u']],
+ how:'Muddle the basil with the lemon, add gin and syrup, shake hard, double strain over ice.'},
+
+{id:'vesper',slot:'eve',n:'Vesper Martini',glass:'Coupe',tech:'Stir',
+ ing:[['gin',6],['vodka',2],['lillet',1],['lemonTw',1,'g']],
+ how:'Stir with plenty of ice until the mixing glass frosts. Strain, twist lemon over the top.',
+ flag:'Your recipe file says 12 / 4 / 2 cl. Halved here to the classic 6 / 2 / 1 — 18 cl of neat spirit is a lot for one coupe. Change it if the file was right.'},
+
+{id:'espresso',slot:'eve',n:'Espresso Martini',glass:'Coupe',tech:'Shake',
+ ing:[['vodka',4],['espresso',3],['kahlua',2],['syrup',1],['coffeeBn',3,'g']],
+ how:'Pull the espresso fresh and hot. Shake very hard with ice, double strain, float three beans.'},
+
+{id:'amaretto',slot:'late',n:'Amaretto Sour',glass:'Rocks',tech:'Shake',
+ ing:[['amaretto',4],['limeJ',4],['syrup',2],['angostura',2,'u'],['eggWhite',1,'u']],
+ how:'Dry shake with the egg white first, then shake again with ice. Strain over one big cube.',
+ flag:'Your recipe file says 12 cl amaretto — 120 ml in a single glass. Set to 4 cl here.'},
+
+{id:'daiquiri',slot:'late',n:'Daiquiri',glass:'Coupe',tech:'Shake',
+ ing:[['rum',8],['lemonJ',4],['syrup',2]],
+ how:'Shake hard with ice, double strain into a chilled coupe. Yours runs on lemon, not lime.'},
+
+{id:'vmojito',slot:'mock',n:'Virgin Mojito',glass:'Highball',tech:'Muddle',
+ ing:[['limeWhole',1,'u'],['lemonHalf',1,'u'],['brownSug',2,'u'],['mint',1,'u'],['soda',15]],
+ how:'Muddle lime, lemon and sugar. Clap the mint, drop it in, fill with crushed ice, top with sparkling water.'},
+
+{id:'vpina',slot:'mock',n:'Virgin Piña Colada',glass:'Hurricane',tech:'Shake',
+ ing:[['pineapple',15],['coconut',5],['syrup',1],['pineWdg',1,'g']],
+ how:'Dry shake first to emulsify the coconut cream, then shake again with ice. Pour unstrained.'},
+
+{id:'pgl',slot:'mock',n:'Pink Grapefruit Lemonade',glass:'Tall glass',tech:'Stir',
+ sub:'lemon · pink grapefruit · sugar',
+ ing:[['pgl',28]],
+ how:'Stir together and chill hard. Also the mixer in every Mezcal Paloma, so batch it big.'},
+];
+
+/* ==========================================================
+   STATE
+   ========================================================== */
+const KEY='carbootbar.v1';
+const store={
+  get(){try{const v=localStorage.getItem(KEY);return v?JSON.parse(v):null}catch(e){return null}},
+  set(o){try{localStorage.setItem(KEY,JSON.stringify(o))}catch(e){}}
+};
+let counts=store.get()||{}, open=null, tab='drinks';
+
+/* ==========================================================
+   HELPERS
+   ========================================================== */
+function cl(v){
+  if(!v) return '0';
+  if(v>=100){let s=(v/100).toFixed(2);
+    if(s.indexOf('.')>-1)s=s.replace(/0+$/,'').replace(/\.$/,'');return s+' L'}
+  return (Math.round(v*100)/100)+' cl';
+}
+const num=v=>Math.round(v*100)/100;
+const s=(n,w)=>n===1?w:w+'s';
+function unitWord(g,v){ if(!g.u) return ''; return v===1?g.u:(g.up||g.u+'s') }
+function count(g,v){ const w=unitWord(g,v); return w?num(v)+' '+w:num(v)+'×' }
+
+function subtitle(d){
+  if(d.sub) return d.sub;
+  let a=d.ing.filter(x=>x.length<3&&x[0]!=='soda'&&x[0]!=='water');
+  if(!a.length) a=d.ing.slice(0,3);
+  return a.slice(0,3).map(x=>x[0]==='pgl'?'grapefruit lemonade':ING[x[0]].n.toLowerCase()).join(' · ');
+}
+
+function totals(){
+  const vol={},cnt={};let pgl=0,drinks=0;
+  for(const d of DRINKS){
+    const n=counts[d.id]||0; if(!n) continue; drinks+=n;
+    for(const [k,a,u] of d.ing){
+      if(u) cnt[k]=(cnt[k]||0)+a*n;
+      else if(k==='pgl') pgl+=a*n;
+      else vol[k]=(vol[k]||0)+a*n;
+    }
+  }
+  if(pgl) for(const k in PGL.parts) vol[k]=(vol[k]||0)+pgl*PGL.parts[k]/PGL.total;
+  return {vol,cnt,pgl,drinks};
+}
+
+/* ==========================================================
+   DRINKS VIEW
+   ========================================================== */
+function renderDrinks(){
+  let h='';
+  for(const [sid,sname] of SLOTS){
+    const list=DRINKS.filter(d=>d.slot===sid);
+    const sum=list.reduce((a,d)=>a+(counts[d.id]||0),0);
+    h+='<div class="slot"><h2>'+sname+'</h2><div class="ticks">'+'<i></i>'.repeat(24)+
+       '</div><div class="cnt'+(sum?' on':'')+'">'+sum+'</div></div>';
+    for(const d of list){
+      const n=counts[d.id]||0;
+      h+='<div class="drink'+(n?' on':'')+(open===d.id?' open':'')+'">'
+        +'<div class="row">'
+        +'<button class="rowmain" data-x="open" data-d="'+d.id+'" aria-expanded="'+(open===d.id)+'">'
+        +'<div class="name">'+d.n+'</div><div class="sub">'+subtitle(d)+'</div></button>'
+        +'<div class="step">'
+        +'<button data-x="m" data-d="'+d.id+'" aria-label="One fewer '+d.n+'">−</button>'
+        +'<input type="number" inputmode="numeric" min="0" max="999" value="'+n+'" '
+        +'data-x="v" data-d="'+d.id+'" aria-label="'+d.n+' servings">'
+        +'<button data-x="p" data-d="'+d.id+'" aria-label="One more '+d.n+'">+</button>'
+        +'</div></div>'
+        +'<div class="body">'+(open===d.id?recipe(d,n):'')+'</div></div>';
+    }
+  }
+  document.getElementById('viewDrinks').innerHTML=h;
+}
+
+function recipe(d,n){
+  const m=Math.max(n,1);
+  let h='<div class="meta">'+d.tech+' · '+d.glass+' · for '+m+' '+s(m,'serving')+'</div><div class="spec">';
+  for(const [k,a,u] of d.ing){
+    const g=ING[k]||{n:'Pink grapefruit lemonade'};
+    let per,tot;
+    if(u){per=count(g,a);tot=count(g,a*m)}
+    else {per=a+' cl';tot=cl(a*m)}
+    h+='<div class="l'+(u==='g'?' gn':'')+'"><span class="i">'+g.n+'</span>'
+      +'<span class="per">'+per+'</span><span class="tot">'+tot+'</span></div>';
+  }
+  h+='</div><div class="how">'+d.how+'</div>';
+  if(d.id==='pgl') h+='<div class="how">Ratio 1 : 1 : 6 : 6 — lemon juice, sugar syrup, pink grapefruit juice, water. The batch breakdown lives on the Ingredients tab.</div>';
+  if(d.flag) h+='<div class="flag">'+d.flag+'</div>';
+  return h;
+}
+
+/* ==========================================================
+   INGREDIENTS VIEW
+   ========================================================== */
+function gauge(units){
+  const seg=Math.ceil(units-1e-6);
+  if(seg<1||seg>10) return '';
+  let h='<div class="gauge">';
+  for(let i=0;i<seg;i++)
+    h+='<span style="--f:'+(Math.min(1,Math.max(0,units-i))*100).toFixed(0)+'%"></span>';
+  return h+'</div>';
+}
+
+function renderIng(){
+  const v=document.getElementById('viewIng'), T=totals();
+  if(!T.drinks){
+    v.innerHTML='<div class="empty"><p>Nothing on the board yet</p>'
+      +'<small>Set servings on the Drinks tab and the quantities land here.</small></div>';
+    return;
+  }
+  const fruit={};
+  const add=(f,x,note)=>{fruit[f]=fruit[f]||{whole:0,notes:[]};fruit[f].whole+=x;if(note)fruit[f].notes.push(note)};
+  for(const k in T.vol){const g=ING[k];if(g&&g.fruit) add(g.fruit,T.vol[k]/FRUIT[g.fruit].cl,cl(T.vol[k])+' juice')}
+  for(const k in T.cnt){const g=ING[k];if(g&&g.fruit) add(g.fruit,T.cnt[k]/g.per,num(T.cnt[k])+' '+g.note)}
+
+  const lines={}; CATS.forEach(c=>lines[c[0]]=[]);
+
+  for(const k in T.vol){
+    const g=ING[k]; if(!g||g.skip||g.fruit) continue;
+    const val=T.vol[k]; let buy='',units=0;
+    if(g.pack){
+      units=val/g.pack; const w=Math.ceil(units-1e-6);
+      buy = g.packN ? w+' '+(w===1?g.packN:g.packP)
+          : g.pack===100 ? w+' × 1 L'
+          : w+' × '+g.pack+' cl '+s(w,'bottle');
+    }
+    if(g.alt) buy+=(buy?'  ·  ':'')+'or ~'+Math.ceil(val/g.alt)+' '+g.altN;
+    lines[g.c].push({n:g.n,amt:cl(val),buy:buy,units:units,home:g.home,sort:-val});
+  }
+  for(const k in T.cnt){
+    const g=ING[k]; if(!g||g.skip||g.fruit) continue;
+    const val=T.cnt[k]; let buy='',units=0;
+    if(g.gram) buy='≈ '+Math.round(val*g.gram)+' g';
+    if(g.pack){units=val/g.pack;const w=Math.ceil(units-1e-6);buy=w+' '+(w===1?g.packN:g.packP)}
+    lines[g.c].push({n:g.n,amt:count(g,val),buy:buy,units:units,home:g.home,sort:0});
+  }
+  for(const f in fruit){
+    const w=Math.ceil(fruit[f].whole-1e-6);
+    lines.fresh.push({n:FRUIT[f].n,amt:w+'×',buy:fruit[f].notes.join('  ·  '),units:fruit[f].whole,sort:-w});
+  }
+
+  let h='';
+  for(const [c,label] of CATS){
+    const rows=lines[c].sort((a,b)=>a.sort-b.sort||a.n.localeCompare(b.n));
+    if(!rows.length) continue;
+    h+='<div class="cat">'+label+'</div>';
+    for(const r of rows)
+      h+='<div class="ing"><div class="top"><div class="nm">'+r.n
+        +(r.home?'<span class="tag">from home</span>':'')+'</div>'
+        +'<div class="amt">'+r.amt+'</div></div>'
+        +(r.buy?'<div class="buy">'+r.buy+'</div>':'')
+        +(r.units?gauge(r.units):'')+'</div>';
+  }
+
+  if(T.pgl){
+    h+='<div class="prep"><h3>Pink Grapefruit Lemonade</h3><div class="lede">'
+      +'Batch this before anything else — it is the mixer in every Paloma as well as a drink of its own. '
+      +'These four are already counted in the totals above, so do not buy them twice.</div>';
+    for(const [nm,r] of PGLROWS)
+      h+='<div class="l"><span class="i">'+nm+'</span><span class="r">'+r+' '+s(r,'part')+'</span>'
+        +'<span class="v">'+cl(T.pgl*r/PGL.total)+'</span></div>';
+    h+='<div class="tot">'+cl(T.pgl)+' total  ·  ratio 1 : 1 : 6 : 6</div></div>';
+  }
+
+  h+='<div class="tools"><button id="copyBtn">Copy list</button>'
+    +'<button id="clearBtn">Clear all</button></div>';
+  v.innerHTML=h;
+  document.getElementById('copyBtn').onclick=copyList;
+  document.getElementById('clearBtn').onclick=function(){
+    if(!confirm('Set every drink back to zero?')) return;
+    counts={};store.set(counts);render();toast('Cleared');
+  };
+}
+
+function copyList(){
+  const T=totals(); const out=['CAR BOOT BAR — '+T.drinks+' drinks',''];
+  for(const d of DRINKS){const n=counts[d.id]||0;if(n)out.push(n+'× '+d.n)}
+  out.push('','SHOPPING');
+  document.getElementById('viewIng').querySelectorAll('.cat').forEach(function(c){
+    out.push('','— '+c.textContent.toUpperCase());
+    let e=c.nextElementSibling;
+    while(e&&e.classList.contains('ing')){
+      const nm=e.querySelector('.nm').textContent.replace('from home',' (from home)');
+      const by=e.querySelector('.buy');
+      out.push('  '+nm+' — '+e.querySelector('.amt').textContent
+        +(by?'  ['+by.textContent.trim()+']':''));
+      e=e.nextElementSibling;
+    }
+  });
+  if(T.pgl){
+    out.push('','— PINK GRAPEFRUIT LEMONADE ('+cl(T.pgl)+', ratio 1:1:6:6)');
+    for(const [nm,r] of PGLROWS) out.push('  '+nm+' — '+cl(T.pgl*r/PGL.total));
+  }
+  const txt=out.join('\n');
+  if(navigator.clipboard&&navigator.clipboard.writeText)
+    navigator.clipboard.writeText(txt).then(function(){toast('Copied')},function(){fallback(txt)});
+  else fallback(txt);
+}
+function fallback(txt){
+  const t=document.createElement('textarea');t.value=txt;
+  t.style.cssText='position:fixed;top:0;opacity:0';document.body.appendChild(t);
+  t.focus();t.setSelectionRange(0,txt.length);
+  try{document.execCommand('copy');toast('Copied')}catch(e){toast('Could not copy')}
+  document.body.removeChild(t);
+}
+
+/* ==========================================================
+   CHROME
+   ========================================================== */
+function render(){
+  if(tab==='drinks') renderDrinks(); else renderIng();
+  const T=totals(), kinds=DRINKS.filter(d=>counts[d.id]).length;
+  document.getElementById('dockBig').textContent=T.drinks;
+  document.getElementById('dockLbl').textContent=s(T.drinks,'drink')+' poured';
+  document.getElementById('readout').innerHTML=T.drinks
+    ? '<b>'+kinds+'</b> of '+DRINKS.length+' on the card'
+    : DRINKS.length+' drinks on the card';
+  document.getElementById('dockGo').textContent=tab==='drinks'?'Ingredients':'Drinks';
+}
+function setTab(t){
+  tab=t;
+  document.getElementById('tabDrinks').setAttribute('aria-selected',t==='drinks');
+  document.getElementById('tabIng').setAttribute('aria-selected',t==='ing');
+  document.getElementById('viewDrinks').classList.toggle('hidden',t!=='drinks');
+  document.getElementById('viewIng').classList.toggle('hidden',t!=='ing');
+  render(); window.scrollTo(0,0);
+}
+let tt;
+function toast(m){
+  const el=document.getElementById('toast');el.textContent=m;el.classList.add('show');
+  clearTimeout(tt);tt=setTimeout(function(){el.classList.remove('show')},1600);
+}
+function bump(id,d){
+  const n=Math.max(0,Math.min(999,(counts[id]||0)+d));
+  if(n) counts[id]=n; else delete counts[id];
+  store.set(counts);
+  if(navigator.vibrate) navigator.vibrate(8);
+  render();
+}
+
+document.getElementById('tabDrinks').onclick=function(){setTab('drinks')};
+document.getElementById('tabIng').onclick=function(){setTab('ing')};
+document.getElementById('dockGo').onclick=function(){setTab(tab==='drinks'?'ing':'drinks')};
+
+document.addEventListener('click',function(e){
+  const b=e.target.closest('[data-x]'); if(!b) return;
+  const x=b.dataset.x, id=b.dataset.d;
+  if(x==='p') bump(id,1);
+  else if(x==='m') bump(id,-1);
+  else if(x==='open'){open=open===id?null:id;render()}
+});
+document.addEventListener('input',function(e){
+  if(e.target.dataset.x!=='v') return;
+  const id=e.target.dataset.d;
+  let n=parseInt(e.target.value,10); if(isNaN(n)||n<0)n=0; if(n>999)n=999;
+  if(n) counts[id]=n; else delete counts[id];
+  store.set(counts);
+  document.getElementById('dockBig').textContent=totals().drinks;
+  e.target.closest('.drink').classList.toggle('on',!!n);
+});
+document.addEventListener('focusin',function(e){if(e.target.dataset.x==='v')e.target.select()});
+document.addEventListener('change',function(e){if(e.target.dataset.x==='v')render()});
+
+setTab('drinks');
+</script>
+</body>
+</html>
